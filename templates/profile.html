@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <p>Username: {{ user['username'] }}</p>
+    <p>First Name: {{ user['firstname'] }}</p>
+    <p>Last Name: {{ user['lastname'] }}</p>
+    <p>Email: {{ user['email'] }}</p>
+    <p>Address: {{ user['address'] }}</p>
+    {% if user['filename'] %}
+        <p>Uploaded File: {{ user['filename'] }}</p>
+        <p>Word Count: {{ user['word_count'] }}</p>
+        <a href="{{ url_for('download', username=user['username']) }}">Download File</a>
+    {% else %}
+        <p>No file uploaded</p>
+    {% endif %}
+    <p><a href="{{ url_for('login') }}">Logout</a></p>
+</body>
+</html>
+1~<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <p>Username: {{ user['username'] }}</p>
+    <p>First Name: {{ user['firstname'] }}</p>
+    <p>Last Name: {{ user['lastname'] }}</p>
+    <p>Email: {{ user['email'] }}</p>
+    <p>Address: {{ user['address'] }}</p>
+    {% if user['filename'] %}
+        <p>Uploaded File: {{ user['filename'] }}</p>
+        <p>Word Count: {{ user['word_count'] }}</p>
+        <a href="{{ url_for('download', username=user['username']) }}">Download File</a>
+    {% else %}
+        <p>No file uploaded</p>
+    {% endif %}
+    <p><a href="{{ url_for('login') }}">Logout</a></p>
+</body>
+</html>
